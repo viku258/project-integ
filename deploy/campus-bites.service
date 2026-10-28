@@ -1,0 +1,17 @@
+[Unit]
+Description=Campus Bites application
+After=network.target
+
+[Service]
+Type=simple
+User=campus
+WorkingDirectory=/opt/campus-bites
+Environment=NODE_ENV=production
+EnvironmentFile=/opt/campus-bites/.env
+ExecStart=/usr/bin/node server/index.js
+Restart=on-failure
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
